@@ -11,11 +11,11 @@ plugins {
 }
 
 android {
-    namespace = "com.kptom.pda"
+    namespace = "com.lear.compose"
     compileSdk = libs.versions.sdk.compile.get().toInt()
 
     defaultConfig {
-        applicationId = "com.kptom.pda"
+        applicationId = "com.lear.compose"
         minSdk = libs.versions.sdk.min.get().toInt()
         targetSdk = libs.versions.sdk.target.get().toInt()
         versionCode = libs.versions.app.version.code.get().toInt()
