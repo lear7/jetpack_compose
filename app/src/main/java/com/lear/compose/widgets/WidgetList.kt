@@ -160,47 +160,6 @@ fun NationalDayNoticeItemPreview(
     }
 }
 
-@Preview(name = "MessageCardDemo", widthDp = 300, heightDp = 100)
-@Composable
-fun MessageCardDemo() {
-    MessageCard(Message("Android", "Welcome"))
-}
-
-@Composable
-fun MessageCard(msg: Message) {
-    Surface(
-        shape = MaterialTheme.shapes.medium, // 使用 MaterialTheme 自带的形状
-        modifier = Modifier.padding(all = 8.dp),
-        shadowElevation = 3.dp
-    ) {
-        Row(
-            modifier = Modifier.padding(all = 8.dp)
-        ) {
-            Image(
-                painterResource(id = R.mipmap.car),
-                contentDescription = "profile picture",
-                modifier = Modifier
-                    .size(50.dp)
-                    .clip(CircleShape)
-                    .border(1.5.dp, MaterialTheme.colorScheme.secondary, shape = CircleShape)
-            )
-            Spacer(Modifier.padding(horizontal = 8.dp))
-            Column {
-                Text(
-                    text = msg.author,
-                    color = MaterialTheme.colorScheme.secondary,
-                    style = MaterialTheme.typography.titleMedium
-                )
-                Spacer(Modifier.padding(vertical = 4.dp))
-                Text(
-                    text = msg.body,
-                    style = MaterialTheme.typography.titleMedium
-                )
-            }
-        }
-    }
-}
-
 @Preview
 @Composable
 fun ButtonDemo() {
@@ -443,6 +402,7 @@ fun ScrollableTabRowDemo() {
 @Composable
 fun ShowAlertDialog(confirm: () -> Unit, dismiss: () -> Unit) {
     AlertDialog(
+        shape = RoundedCornerShape(12.dp),
         onDismissRequest = dismiss, // Executes when the user tries to dismiss the Dialog by clicking outside or pressing the back button. This is not called when the dismiss button is clicked
         title = {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -1093,6 +1053,7 @@ fun ModalBottomSheetLayoutDemo() {
     }
     if (openBottomSheet.value) {
         ModalBottomSheet(
+            shape = RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp),
             onDismissRequest = { openBottomSheet.value = false },
             sheetState = bottomSheetState,
             containerColor = Color.White,

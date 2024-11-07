@@ -9,6 +9,7 @@ class DayProvider : PreviewParameterProvider<NationalDayNoticeItemPreviewData> {
     private val onClose = {
 
     }
+
     private val nationalDayNoticeItemPreviewData =
         NationalDayNoticeItemPreviewData(noticeName, onClose)
 

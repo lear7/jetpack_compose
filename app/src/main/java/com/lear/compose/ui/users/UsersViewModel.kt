@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.lear.compose.repository.UsersRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -22,6 +23,7 @@ class UsersViewModel @Inject constructor(
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
+            // 这里开始耗时
             usersRepository.refreshUsers()
             usersRepository.users.collect { list ->
                 withContext(Dispatchers.Main) {
